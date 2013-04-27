@@ -1,5 +1,5 @@
-//años bisiestos
-/* un año bisiesto es aquel que es un múltiplo de 4, peno no de 100*/
+﻿//años bisiestos
+/* un año bisiesto es aquel que es un múltiplo de 4, pero no de 100*/
 class bisiesto{
 	public static void main(String[] args){
 	//ingresar dato

@@ -14,8 +14,8 @@ public class SimpleDraw extends JPanel implements Runnable {
     private static final long serialVersionUID = -7469734580960165754L;
     private boolean animate = true;
     private final int FRAME_DELAY = 50; // 50 ms = 20 FPS
-    public static final int WIDTH = 500;
-    public static final int HEIGHT = 500;
+    public static final int WIDTH = 700;
+    public static final int HEIGHT = 700;
     private DrawGraphics draw;
 
     
@@ -27,7 +27,7 @@ public class SimpleDraw extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        // Enable anti-aliasing for better looking graphics
+        // Enable anti-aliasing for better looking graphics 
         Graphics2D g2 = (Graphics2D) g;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         draw.draw(g2);
@@ -66,7 +66,7 @@ public class SimpleDraw extends JPanel implements Runnable {
 
         JFrame frame = new JFrame("Graphics!");
        
-        Color bgColor = Color.black;
+        Color bgColor = Color.white;
         frame.setBackground(bgColor);
         content.setBackground(bgColor);
 //        content.setSize(WIDTH, HEIGHT);
@@ -86,4 +86,4 @@ public class SimpleDraw extends JPanel implements Runnable {
 
         frame.setVisible(true);
     }
-} 
+}
