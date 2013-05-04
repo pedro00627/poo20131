@@ -28,7 +28,7 @@ public class Oval implements Sprite {
         // Draw the object
         surface.setColor(color);
         surface.fillOval(x, y, width, height);
-        surface.setColor(Color.BLACK);
+        surface.setColor(Color.BLUE);
         ((Graphics2D) surface).setStroke(new BasicStroke(3.0f));
         surface.drawOval(x, y, width, height);
     }
