@@ -1,8 +1,10 @@
 //histograma
 class histograma{
-
+	public static double Redondear(double numero){
+			return Math.rint(numero*10)/10;
+	}
 	public static void main(String [] args){
-	
+		
 		//ingresar cantidad de numeros aleatorios
 		System.out.println("ingrese cuantos numeros aleatorios entre 0 y 100 desea generar, la cantidad debe ser mayor o igual que 10");
 		int n= Integer.parseInt(System.console().readLine());
@@ -24,12 +26,9 @@ class histograma{
 		}
 		
 		//mayor y menor
-		int min=101;
-		int max=0;
-		
-		
+		double min=101.0;
+		double max=0.0;
 		int [] cont=new int[10];
-		
 		for(int i=0;i<n;i++)
 		{
 			if (al[i]<=min){
@@ -42,29 +41,30 @@ class histograma{
 			}
 		}
 		
-		
 		//establecer intervalos
-		double ran=(double)(max-min)/10;
-		System.out.println("el numero minimo es: "+min+", el numero maximo es:"+max+", el rango es: "+ran);
-
-		//buscar por intervalos
-		
-		for(int i=0;i<=9;i++){
-			
-			//busca
-			for(double j=min;j<=max;j=(j+ran))
-			{
-				//vector resultado
-				//System.out.println("j es: "+j+"  "+al[i]);
-				if (al[i]>j && al[i]<=ran){
-					cont[i]=cont[i]+1;
-					//System.out.println("cuenta"+i+j);
-				}
-			System.out.println("cuenta "+i+" Total: "+al[i]);
+		double ran=Redondear((max-min)/10);
+		System.out.println("el numero minimo es: "+min+", el numero maximo es: "+max+", el rango es: "+ran);
+		//vector rangos
+		double[] rang= new double[n+1];
+		for(int i=0;i<=10;i++){
+			rang[i]=Redondear(min+i*ran);
+			//System.out.println(rang[i]);
 			}
+				
+		//contador
+		for(int i=0;i<n;i++){
+			if(al[i]==rang[0]){
+				cont[0]++;
+				}
+				for(int j=0;j<=10;j++){
+					if(al[i]>rang[j]&&al[i]<=rang[j+1]){
+					cont[j]++;
+					}
+				}
 		}
-		for(int i=0;i<=9;i++){
-			System.out.println(cont[i]);
+		
+		for(int i=0;i<10;i++){
+			System.out.println("La cantidad de datos en el rango ("+rang[i]+","+rang[i+1]+") es: "+cont[i]);
 		}
 		
 	}
